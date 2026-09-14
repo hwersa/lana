@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>إلى لانا.. أميرة الفؤاد واليوم السعيد ✨ | Happy Birthday Lana</title>
+    
+    <!-- Google Fonts: Alexandria & Tajawal & Cairo (No Amiri) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&family=Reem+Kufi:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        poetic: {
+                            dark: '#0e0b16',
+                            violet: '#240046',
+                            purple: '#3c096c',
+                            magenta: '#7b2cbf',
+                            pink: '#ff70a6',
+                            gold: '#ffd166',
+                            cream: '#fff0f5'
+                        }
+                    },
+                    fontFamily: {
+                        alexandria: ['Alexandria', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif'],
+                        reem: ['Reem Kufi', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            font-family: 'Alexandria', 'Tajawal', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #090314 0%, #1a0826 35%, #2a0845 70%, #11001c 100%);
+            background-attachment: fixed;
+            color: #f8f9fa;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Romantic Card */
+        .glass-romantic {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 182, 193, 0.18);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-romantic-glow {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 112, 166, 0.35);
+            box-shadow: 0 10px 40px rgba(255, 112, 166, 0.18), inset 0 0 15px rgba(255, 112, 166, 0.1);
+        }
+
+        /* Vinyl Record Player Animation */
+        @keyframes spin-vinyl {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-vinyl {
+            animation: spin-vinyl 12s linear infinite;
+        }
+        .paused {
+            animation-play-state: paused;
+        }
+
+        /* Floating particles and soft pulse */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: float-slow 5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 112, 166, 0.6)); }
+            50% { filter: drop-shadow(0 0 25px rgba(255, 209, 102, 0.9)); }
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 3.5s ease-in-out infinite;
+        }
+
+        /* Scroll Reveal Utility Classes */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(35px) scale(0.96);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Interactive Envelope Flip/Open */
+        .envelope-wrapper {
+            perspective: 1000px;
+        }
+        .envelope-card {
+            transition: transform 0.6s ease;
+            transform-style: preserve-3d;
+        }
+        .envelope-card.open {
+            transform: rotateY(180deg);
+        }
+        .front-side, .back-side {
+            backface-visibility: hidden;
+        }
+        .back-side {
+            transform: rotateY(180deg);
+        }
+
+        /* Sparkle & Touch canvas */
+        #fx-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .text-glow {
+            text-shadow: 0 0 12px rgba(255, 112, 166, 0.6), 0 0 24px rgba(123, 44, 191, 0.4);
+        }
+
+        .text-gold-glow {
+            text-shadow: 0 0 10px rgba(255, 209, 102, 0.7);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #090314; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #7b2cbf, #ff70a6); border-radius: 4px; }
+    </style>
+</head>
+<body class="selection:bg-poetic-pink selection:text-white pb-16 relative">
+
+    <!-- Interactive Canvas Layer for Floating Hearts and Touch Sparkles -->
+    <canvas id="fx-canvas"></canvas>
+
+    <div class="relative z-10 max-w-lg mx-auto px-4 pt-8">
+
+        <header class="text-center mb-10 reveal-on-scroll active">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-romantic text-xs font-semibold text-pink-300 mb-3 animate-float border border-pink-500/30">
+                <span class="inline-block w-2 h-2 rounded-full bg-pink-400 animate-ping"></span>
+                <span>اليوم تشرق الدنيا فرحاً ✨</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl font-black font-reem text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-200 to-amber-200 tracking-wide text-glow leading-tight">
+                لانا | Lana
+            </h1>
+
+            <p class="text-pink-200/90 text-sm font-light mt-2 max-w-xs mx-auto leading-relaxed">
+                "كأنّكِ نَغَمٌ عُذْبٌ تَهَادَى فِي صَمْتِ المَسَاءِ، فَأَزهَرَتْ بِكِ الأَيّامُ"
+            </p>
+
+            <!-- Dynamic Date Display -->
+            <div class="mt-4 inline-flex items-center gap-2 px-5 py-2 rounded-2xl glass-romantic text-xs font-bold text-amber-200 border border-amber-300/20">
+                <i class="far fa-calendar-star text-pink-400"></i>
+                <span id="poetic-date">تاريخ مميز في الذاكرة...</span>
+            </div>
+        </header>
+
+        <main class="space-y-8">
+
+            <section class="reveal-on-scroll glass-romantic-glow rounded-3xl p-6 text-center relative overflow-hidden">
+                <div class="absolute -top-12 -right-12 w-32 h-32 bg-pink-600/20 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-purple-600/20 rounded-full blur-3xl"></div>
+
+                <!-- Crown & Glowing Avatar -->
+                <div class="relative w-28 h-28 mx-auto mb-4">
+                    <div class="w-full h-full rounded-full bg-gradient-to-tr from-pink-500 via-purple-500 to-amber-300 p-1 animate-pulse-glow shadow-2xl">
+                        <div class="w-full h-full bg-poetic-dark rounded-full flex items-center justify-center overflow-hidden border border-white/20">
+                            <span class="text-5xl transform hover:scale-125 transition-transform duration-300">👑</span>
+                        </div>
+                    </div>
+                    <span class="absolute -bottom-1 -right-1 bg-gradient-to-r from-amber-400 to-pink-500 text-poetic-dark font-black text-xs px-2 py-0.5 rounded-full shadow-lg">
+                        Lana
+                    </span>
+                </div>
+
+                <h2 class="text-2xl font-bold font-reem text-white mb-2 text-glow">
+                    عيد ميلاد سعيد يا لانا 🌸
+                </h2>
+
+                <p class="text-gray-300 text-sm leading-relaxed mb-6 font-light">
+                    في هذا التاريخ الاستثنائي، نوقد الشموع لا لنحتفل بمرور عام، بل لنحتفي بوجودكِ الذي يضفي على العالم جمالاً ورِقّة. عسى أن تكون أيامكِ القادمة خفيفة، مبهجة، ومكلّلة بكل ما يحبه قلبكِ.
+                </p>
+
+                <!-- Confetti Interactive Launcher -->
+                <button onclick="launchGrandCelebration()" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 text-white font-bold text-sm shadow-xl hover:shadow-pink-500/25 transition-all duration-300 active:scale-95 flex items-center justify-center gap-3 border border-pink-300/30 group">
+                    <i class="fas fa-sparkles text-amber-300 group-hover:rotate-45 transition-transform duration-300"></i>
+                    <span>إطلاق الألعاب النارية والورد! 🎉</span>
+                    <i class="fas fa-heart text-pink-300 animate-bounce"></i>
+                </button>
+            </section>
+
+            <section class="reveal-on-scroll glass-romantic rounded-3xl p-6 relative">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-2xl bg-pink-500/20 flex items-center justify-center text-pink-300 border border-pink-500/30">
+                        <i class="fas fa-feather-pointed text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg font-reem text-white">قصيدة إلى لانا 📜</h3>
+                        <p class="text-xs text-pink-200/60">أبيات صيغت بلغة الورود</p>
+                    </div>
+                </div>
+
+                <div class="bg-black/20 rounded-2xl p-5 border border-white/5 text-center space-y-4">
+                    <p class="text-pink-100 text-sm leading-8 font-light italic">
+                        "يا لانا، يا لَحْنَ السَّمَاءِ إِذَا شَدَا...<br>
+                        وَيا زَهْرَةً بَثَّتْ عَبِيرَاً وَعَسْجَدَا<br>
+                        كُلُّ العَوَامِ لَدَى وُجُودِكِ زَهْوَةٌ...<br>
+                        تَزْهُو بِكِ الأَيَّامُ حُبّاً وَسُؤْدُدا"
+                    </p>
+                    <div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-pink-400 to-transparent mx-auto"></div>
+                    <p class="text-xs text-amber-200/80 font-medium">
+                        دمتِ ضياءً ينير كل مَن حَولكِ ✨
+                    </p>
+                </div>
+            </section>
+
+            <section class="reveal-on-scroll glass-romantic-glow rounded-3xl p-6 relative">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-2xl bg-purple-500/20 flex items-center justify-center text-purple-300 border border-purple-500/30">
+                            <i class="fas fa-compact-disc text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-sm font-reem text-white">لحن المعايدة الخاص بـ لانا 🎵</h3>
+                            <p class="text-xs text-purple-200/70">أغنية مهداة لهذه المناسبة</p>
+                        </div>
+                    </div>
+                    <span class="text-[10px] px-2.5 py-1 bg-pink-500/20 text-pink-300 rounded-full border border-pink-500/30 font-mono">Special Track</span>
+                </div>
+
+                <!-- Styled YouTube Player Container -->
+                <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl bg-black/60 border border-white/10 aspect-video">
+                    <iframe 
+                        id="yt-player"
+                        class="w-full h-full"
+                        src="https://www.youtube.com/embed/CMSAELTTgrk?enablejsapi=1&rel=0&modestbranding=1" 
+                        title="أغنية معايدة لانا" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="mt-3 text-center">
+                    <p class="text-[11px] text-gray-400 italic">اضغطي زر التشغيل لاستماع النغمة الخاصة بكِ 🎧</p>
+                </div>
+            </section>
+
+            <section class="reveal-on-scroll glass-romantic rounded-3xl p-6 text-center">
+                <h3 class="font-bold text-lg font-reem text-white mb-2 flex items-center justify-center gap-2">
+                    <i class="fas fa-envelope-open-text text-amber-300"></i>
+                    <span>رسالة مَطوِيّة بالحب 💌</span>
+                </h3>
+                <p class="text-xs text-pink-200/70 mb-5">اضغطي على الظرف لفتح الرسالة الشاعرية السرية</p>
+
+                <div class="envelope-wrapper w-full max-w-xs mx-auto h-48 cursor-pointer" onclick="toggleEnvelope(this)">
+                    <div class="envelope-card relative w-full h-full">
+                        <!-- Front Face -->
+                        <div class="front-side absolute inset-0 glass-romantic-glow rounded-2xl flex flex-col items-center justify-center p-4 border border-pink-400/40">
+                            <div class="w-16 h-16 rounded-full bg-pink-500/20 flex items-center justify-center text-3xl mb-3 animate-bounce">
+                                ✉️
+                            </div>
+                            <p class="text-sm font-bold text-amber-200">افتحي الرسالة يا لانا</p>
+                            <span class="text-[10px] text-pink-300/80 mt-1">انقري هنا لقلب الرسالة 🔄</span>
+                        </div>
+
+                        <!-- Back Face (Revealed content) -->
+                        <div class="back-side absolute inset-0 bg-gradient-to-br from-purple-900/90 to-pink-900/90 backdrop-blur-md rounded-2xl p-5 flex flex-col items-center justify-center border border-amber-300/40 text-center">
+                            <i class="fas fa-quote-right text-amber-300/40 text-2xl mb-1"></i>
+                            <p class="text-xs text-amber-100 leading-relaxed font-light">
+                                "لانا.. أنتِ لستِ مجرد اسم، بل ابتسامة لطيفة تُزين المكان، وأمنية بيضاء ندعو أن تحرسها السماء دائماً. كل عام وأنتِ في قمة التألق."
+                            </p>
+                            <span class="mt-3 text-[10px] text-pink-300 font-bold">✨ دمتِ بخير وسعادة ✨</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="reveal-on-scroll">
+                <h3 class="text-lg font-bold font-reem text-white mb-4 flex items-center gap-2">
+                    <i class="fas fa-gem text-pink-400"></i>
+                    <span>بطاقات الأمنيات والأسرار (افتحيها):</span>
+                </h3>
+
+                <div class="grid grid-cols-2 gap-3" id="poetic-wishes-grid">
+                    <!-- Wish 1 -->
+                    <div onclick="revealPoeticWish(this, 'ضحكة تدوم ولا تغيب 🌸')" class="glass-romantic p-4 rounded-2xl text-center cursor-pointer transition-all duration-300 hover:border-pink-400/50 relative group">
+                        <div class="text-3xl mb-2 group-hover:scale-125 transition-transform">✨</div>
+                        <p class="text-xs font-bold text-pink-200 card-title">سر الأمنية الأول</p>
+                        <p class="text-xs text-amber-200 hidden font-bold mt-1 card-secret"></p>
+                    </div>
+
+                    <!-- Wish 2 -->
+                    <div onclick="revealPoeticWish(this, 'أحلام تتحقق كالمعجزات 🌙')" class="glass-romantic p-4 rounded-2xl text-center cursor-pointer transition-all duration-300 hover:border-pink-400/50 relative group">
+                        <div class="text-3xl mb-2 group-hover:scale-125 transition-transform">🕊️</div>
+                        <p class="text-xs font-bold text-pink-200 card-title">سر الأمنية الثاني</p>
+                        <p class="text-xs text-amber-200 hidden font-bold mt-1 card-secret"></p>
+                    </div>
+
+                    <!-- Wish 3 -->
+                    <div onclick="revealPoeticWish(this, 'سكينة وحب يملأ قلبكِ 💖')" class="glass-romantic p-4 rounded-2xl text-center cursor-pointer transition-all duration-300 hover:border-pink-400/50 relative group">
+                        <div class="text-3xl mb-2 group-hover:scale-125 transition-transform">🌷</div>
+                        <p class="text-xs font-bold text-pink-200 card-title">سر الأمنية الثالث</p>
+                        <p class="text-xs text-amber-200 hidden font-bold mt-1 card-secret"></p>
+                    </div>
+
+                    <!-- Wish 4 -->
+                    <div onclick="revealPoeticWish(this, 'توفيق ودرب مكلل بالورد ⭐️')" class="glass-romantic p-4 rounded-2xl text-center cursor-pointer transition-all duration-300 hover:border-pink-400/50 relative group">
+                        <div class="text-3xl mb-2 group-hover:scale-125 transition-transform">🔮</div>
+                        <p class="text-xs font-bold text-pink-200 card-title">سر الأمنية الرابع</p>
+                        <p class="text-xs text-amber-200 hidden font-bold mt-1 card-secret"></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="reveal-on-scroll glass-romantic-glow rounded-3xl p-6 text-center">
+                <h4 class="font-bold text-base font-reem text-white mb-2">ابعثي بنبضات ودعوات لـ لانا 🌟</h4>
+                <p class="text-xs text-pink-200/70 mb-4">انقري لزيادة الورد والنجمات المضيئة باسمها</p>
+
+                <div class="flex items-center justify-center gap-4">
+                    <button onclick="sendLovePulse(event)" class="flex items-center gap-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 active:scale-90 shadow-lg shadow-pink-500/30">
+                        <i class="fas fa-heart text-amber-300 animate-pulse"></i>
+                        <span id="star-count">1000</span> نبضة محبة
+                    </button>
+                </div>
+                
+                <p id="pulse-toast" class="text-xs text-amber-300 font-medium h-4 mt-3 transition-opacity duration-300 opacity-0">
+                    تم إرسال دعوة من القلب! 💖✨
+                </p>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-12 text-xs text-pink-200/50 space-y-2 reveal-on-scroll">
+            <p>صُنع بكل الشغف والشاعرية خصيصاً لـ <span class="font-bold text-pink-400">لانا | Lana</span> 🌸</p>
+            <p class="text-[10px] text-gray-500">HAPPY BIRTHDAY LANA • ALL RIGHTS RESERVED</p>
+        </footer>
+    </div>
+
+    <script>
+        // 1. Dynamic Arabic Poetic Date Generator
+        function setArabicPoeticDate() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateStr = now.toLocaleDateString('ar-EG', options);
+            document.getElementById('poetic-date').innerText = dateStr;
+        }
+
+        // 2. Scroll Reveal Intersection Observer (Smooth Scroll Animations)
+        function initScrollReveal() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // 3. Envelope Flip Interactive Function
+        function toggleEnvelope(el) {
+            const card = el.querySelector('.envelope-card');
+            card.classList.toggle('open');
+            
+            // Trigger light sparkle confetti when opening
+            if (card.classList.contains('open')) {
+                confetti({
+                    particleCount: 35,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }
+        }
+
+        // 4. Reveal Wish Card logic
+        function revealPoeticWish(element, secretMsg) {
+            const title = element.querySelector('.card-title');
+            const secret = element.querySelector('.card-secret');
+
+            if (secret.classList.contains('hidden')) {
+                title.classList.add('hidden');
+                secret.innerText = secretMsg;
+                secret.classList.remove('hidden');
+                element.classList.add('bg-pink-500/20', 'border-pink-400');
+                
+                // Burst burst confetti
+                confetti({
+                    particleCount: 20,
+                    spread: 50,
+                    origin: { y: 0.7 }
+                });
+            }
+        }
+
+        // 5. Love Pulse Counter & Touch Effect
+        let loveCounter = 1000;
+        function sendLovePulse(e) {
+            loveCounter++;
+            document.getElementById('star-count').innerText = loveCounter;
+            
+            const toast = document.getElementById('pulse-toast');
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+            }, 1800);
+
+            // Small burst around touch
+            confetti({
+                particleCount: 15,
+                scalar: 0.8,
+                spread: 40,
+                origin: { y: 0.8 }
+            });
+        }
+
+        // 6. Grand Confetti Burst Celebration
+        function launchGrandCelebration() {
+            const end = Date.now() + (3.5 * 1000);
+            const colors = ['#ff70a6', '#ffd166', '#7b2cbf', '#ffffff'];
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 60,
+                    origin: { x: 0 },
+                    colors: colors
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 60,
+                    origin: { x: 1 },
+                    colors: colors
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            })();
+        }
+
+        // 7. Interactive Canvas Engine: Floating Background Hearts + Touch/Cursor Sparkles
+        function initFxCanvas() {
+            const canvas = document.getElementById('fx-canvas');
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            // Particles array
+            const particles = [];
+            const hearts = [];
+            const colors = ['rgba(255, 112, 166, 0.5)', 'rgba(255, 209, 102, 0.4)', 'rgba(123, 44, 191, 0.4)', 'rgba(255, 255, 255, 0.6)'];
+
+            // Initialize Floating Hearts
+            for (let i = 0; i < 25; i++) {
+                hearts.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    size: Math.random() * 8 + 6,
+                    speedY: Math.random() * 0.8 + 0.2,
+                    speedX: (Math.random() - 0.5) * 0.4,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+
+            // Draw Heart Helper
+            function drawHeart(x, y, size, color) {
+                ctx.save();
+                ctx.beginPath();
+                ctx.fillStyle = color;
+                const topCurveHeight = size * 0.3;
+                ctx.moveTo(x, y + topCurveHeight);
+                ctx.bezierCurveTo(x, y, x - size / 2, y, x - size / 2, y + topCurveHeight);
+                ctx.bezierCurveTo(x - size / 2, y + (size + topCurveHeight) / 2, x, y + size, x, y + size);
+                ctx.bezierCurveTo(x, y + size, x + size / 2, y + (size + topCurveHeight) / 2, x + size / 2, y + topCurveHeight);
+                ctx.bezierCurveTo(x + size / 2, y, x, y, x, y + topCurveHeight);
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            }
+
+            // Touch/Mouse Interactive Particle Trail
+            function addTouchSparkles(x, y) {
+                for(let i=0; i<3; i++) {
+                    particles.push({
+                        x: x,
+                        y: y,
+                        size: Math.random() * 4 + 2,
+                        speedX: (Math.random() - 0.5) * 3,
+                        speedY: (Math.random() - 0.5) * 3,
+                        life: 1,
+                        color: colors[Math.floor(Math.random() * colors.length)]
+                    });
+                }
+            }
+
+            window.addEventListener('touchmove', (e) => {
+                if(e.touches.length > 0) {
+                    addTouchSparkles(e.touches[0].clientX, e.touches[0].clientY);
+                }
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (Math.random() < 0.3) {
+                    addTouchSparkles(e.clientX, e.clientY);
+                }
+            });
+
+            // Canvas Render Loop
+            function render() {
+                ctx.clearRect(0, 0, width, height);
+
+                // Draw floating hearts
+                hearts.forEach(h => {
+                    h.y -= h.speedY;
+                    h.x += h.speedX;
+
+                    if (h.y < -20) {
+                        h.y = height + 20;
+                        h.x = Math.random() * width;
+                    }
+                    drawHeart(h.x, h.y, h.size, h.color);
+                });
+
+                // Render touch particles
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.globalAlpha = p.life;
+                    ctx.fill();
+                    ctx.globalAlpha = 1.0;
+
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    p.life -= 0.025;
+
+                    if (p.life <= 0) {
+                        particles.splice(i, 1);
+                        i--;
+                    }
+                }
+
+                requestAnimationFrame(render);
+            }
+
+            render();
+        }
+
+        // Window Load Initializer
+        window.onload = function() {
+            setArabicPoeticDate();
+            initScrollReveal();
+            initFxCanvas();
+            setTimeout(launchGrandCelebration, 600);
+        };
+    </script>
+</body>
+</html>
